@@ -1,0 +1,224 @@
+
+:root {
+    --primary-dark: #1A3D33;
+    --accent-orange: rgb(255, 107, 53);
+    --text-light: #F4F4F4;
+    --text-dark: #333333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+.navbar {
+    padding: 1.5rem 5%;
+    background: rgba(26, 61, 51, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .scorlled {
+    background-color: #F4F4F4;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-orange);
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    margin-left: 2rem;
+    transition: color 0.3s ease;
+}
+.nav-links a:hover {
+    color: var(--accent-orange);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    margin-top: 80px;
+    background: linear-gradient(2deg, rgba(18, 46, 38, 0.918) 20%, rgba(13, 31, 16, 0.9) 150%),
+                url('pattern.png');
+    background-attachment: fixed;
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-btn{
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--accent-orange);
+    color: var(--text-light);
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 1rem;
+    transition: background 0.3s ease;
+}
+
+/* Sections Common Styles */
+section {
+    padding: 5rem 5%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+}
+
+/* Concept Section */
+.concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.concept-card {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* Menu Section */
+
+        /* Menu interactif */
+    .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    transform: translateZ(0);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 1;  /* Passez de 0 à 1 pour rendre la carte visible */
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.menu-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--primary-green);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.menu-card:hover::before {
+    transform: scaleX(1);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s;
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 25px;
+    background: #25D366;
+    color: white !important;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: transform 0.3s;
+    margin-top: 1rem;
+}
+
+.whatsapp-btn:hover {
+    transform: scale(1.05);
+    background: #128C7E;
+}
+
+/* Location & Schedule */
+.map-container iframe {
+    border-radius: 6%;
+    transition: 1s;
+}
+.map-container  :hover {
+    box-shadow: #F4F4F4 1px 1px 20px;
+    transition: 1s;
+}
+.location-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+   
+}
+
+.schedule {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 3rem 5%;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .location-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+}
